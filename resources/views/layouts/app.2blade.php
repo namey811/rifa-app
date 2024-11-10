@@ -76,6 +76,45 @@
           <span>Home</span>
         </a>
       </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Maestros</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="{{request()->routeIs('clientes.index', 'numeros.index', 'ventas.index', 'responsables.index', 'eventos.index') ? 'nav-content collapse show' : 'nav-content collapse' }}" data-bs-parent="#sidebar-nav">
+          
+          <li>
+            <a href="{{route('responsables.index')}}" class="{{request()->routeIs('responsables.index') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Responsables</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('eventos.index')}}" class="{{request()->routeIs('eventos.index') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Eventos</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('clientes.index')}}" class="{{request()->routeIs('clientes.index') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Clientes</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{route('numeros.index')}}" class="{{request()->routeIs('numeros.index') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Numeros</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{route('ventas.index')}}" class="{{request()->routeIs('ventas.index') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Ventas</span>
+            </a>
+          </li>
+
+
+        </ul>
+        
+      </li><!-- End Components Nav -->
       </ul>
 
   </aside><!-- End Sidebar-->
