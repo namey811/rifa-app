@@ -37,6 +37,7 @@
                       <td>{{$responsable->nombre}}</td>
                       <td>{{$responsable->descripcion}}</td>
                       <td>{{$responsable->cifras}}</td>
+                      <td>{{$responsable->valor}}</td>
                       <td>{{$responsable->fecha_evento}}</td>
                       <td>{{$responsable->responsables->nombre}} {{$responsable->responsables->apellido}}</td>
                         <td>

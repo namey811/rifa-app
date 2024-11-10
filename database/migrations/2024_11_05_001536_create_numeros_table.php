@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('estado')->default('Disponible');
             $table->unsignedBigInteger('eventos_id');
             $table->foreign('eventos_id')->references('id')->on('eventos')->onDelete('cascade');
-            $table->double('valor')->default(0);
             $table->timestamps();
         });
     }

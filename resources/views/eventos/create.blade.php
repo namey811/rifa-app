@@ -43,6 +43,12 @@
                       </div>
                     </div>
                     <div class="col-md-4">
+                      <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingValor" placeholder="Valor" name="valor" required>
+                        <label for="floatingNombre">Valor Boleto:</label>
+                      </div>
+                  </div>
+                    <div class="col-md-4">
                         <div class="form-floating">
                           <input type="date" class="form-control" id="floatingFecha" placeholder="Fecha Evento" name="fecha_evento" required>
                           <label for="floatingFecha">Fecha Evento:</label>

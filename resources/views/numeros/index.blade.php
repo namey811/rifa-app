@@ -24,7 +24,6 @@
                       <th>Numeros</th>
                       <th>Estado</th>
                       <th>Evento</th>
-                      <th>Valor</th>
                       <th>Acciones</th>
                     </tr>
                   </thead>
@@ -35,7 +34,6 @@
                       <td>{{$numero->numero}}</td>
                       <td>{{$numero->estado}}</td>
                       <td>{{$numero->eventos->nombre}}</td>
-                      <td>{{$numero->valor}}</td>
                         <td>
                           <a href="{{route('numeros.show', $numero->id)}}" class="btn btn-light btn-sm"><i class="ri-tv-2-line"></i></a>
                           <a href="{{route('numeros.edit', $numero->id)}}" class="btn btn-info btn-sm"><i class="ri-edit-2-line"></i></a>

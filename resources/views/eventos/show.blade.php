@@ -14,6 +14,7 @@
               <h5 class="card-title">{{$evento->nombre}}</h5>
               <h4 class="card-title">{{$evento->descripcion}}</h4>
               <p>Cifras: {{$evento->cifras}}</p>
+              <p>Valor Boleto: {{$evento->valor}}</p>
               <p>Fecha: {{$evento->fecha_evento}}</p>
               <p>Responsable: {{$evento->responsables->nombre}} {{$evento->responsables->apellido}}</p>
             </div>

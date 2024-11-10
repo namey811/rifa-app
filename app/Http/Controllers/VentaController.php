@@ -14,7 +14,7 @@ class VentaController extends Controller
      // Mostrar todos los numero
    public function index()
    {
-      $numeros = Numero::all();
+      $numeros = Numero::with('eventos')->get();
       $clientes = Cliente::all();
       $clientesventas = Venta::with('clientes','numeros')->get();
          return view('ventas.index', compact('clientesventas'));
@@ -64,7 +64,7 @@ class VentaController extends Controller
    
       #Mail::to($request->email)->send(new namey811());
 
-         return redirect()->route('ventas.index')->with('success', 'Venta creado exitosamente');
+         return redirect()->route('home')->with('success', 'Venta realizada exitosamente, revisa tu correo electronico donde encontraras la informacion de la compra.');
    }
 
    public function store(Request $request)

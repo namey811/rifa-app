@@ -47,12 +47,6 @@
                           <label for="floatingSelect2">Evento:</label>
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingValor" placeholder="Valor" name="valor" required>
-                          <label for="floatingNombre">Valor:</label>
-                        </div>
-                    </div>
                       <div class="text-center">
                         <button type="submit" class="btn btn-primary">Guardar</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>

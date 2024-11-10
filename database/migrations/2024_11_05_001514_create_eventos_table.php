@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->string('cifras');
+            $table->double('valor')->default(0);
             $table->date('fecha_evento');
             $table->unsignedBigInteger('responsables_id');
             $table->foreign('responsables_id')->references('id')->on('responsables')->onDelete('cascade');

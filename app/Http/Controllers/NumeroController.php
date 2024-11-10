@@ -31,8 +31,6 @@ class NumeroController extends Controller
             'numero' => 'required|string|max:15',
             'estado' => 'required|string|max:50',
             'eventos_id' => 'required',
-            'valor' => 'required|integer'
-            
         ]);
 
         Numero::create($request->all());
@@ -61,8 +59,7 @@ class NumeroController extends Controller
         $request->validate([
             'numero' => 'required|string|max:15',
             'estado' => 'required|string|max:50',
-            'eventos_id' => 'required',
-            'valor' => 'required|integer'
+            'eventos_id' => 'required'
         ]);
          //dd($request->estado);
 

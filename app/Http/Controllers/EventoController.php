@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
+use App\Models\Numero;
 use App\Models\Responsable;
 use Illuminate\Http\Request;
 
@@ -31,14 +32,47 @@ class EventoController extends Controller
                  'nombre' => 'required|string|max:255',
                  'descripcion' => 'required|string|max:255',
                  'cifras' => 'required',
+                 'valor' => 'required',
                  'fecha_evento' => 'required',
                  'responsables_id' => 'required'
                  
              ]);
      
-             Evento::create($request->all());
+             $registro = Evento::create($request->all());
+
+             $eventos_id = $registro->id;
+             
+             if ($request->cifras == 2){
+                $arraynumero = [];
+                for ($i = 0; $i < 100; $i++) {
+                    $arraynumero[] = [
+                        'numero' => str_pad($i, 2, '0', STR_PAD_LEFT), // Concatenamos un sufijo para diferenciar
+                        'estado' => 'Disponible',
+                        'eventos_id' => $eventos_id
+                    ];
+                }
+                //dd($arraynumero);
+                Numero::insert($arraynumero);
+
+                return redirect()->route('eventos.index')->with('success', 'Evento creado exitosamente');
+             }
+
+             if ($request->cifras == 3){
+                $arraynumero = [];
+                for ($i = 0; $i < 1000; $i++) {
+                    $arraynumero[] = [
+                        'numero' => str_pad($i, 3, '0', STR_PAD_LEFT), // Concatenamos un sufijo para diferenciar
+                        'estado' => 'Disponible',
+                        'eventos_id' => $eventos_id
+                    ];
+                }
+                //dd($arraynumero);
+                Numero::insert($arraynumero);
+
+                return redirect()->route('eventos.index')->with('success', 'Evento creado exitosamente');
+             }
      
-             return redirect()->route('eventos.index')->with('success', 'Evento creado exitosamente');
+            
          }
      
           // Mostrar un cliente específico
@@ -63,6 +97,7 @@ class EventoController extends Controller
                  'nombre' => 'required|string|max:255',
                  'descripcion' => 'required|string|max:255',
                  'cifras' => 'required',
+                 'valor' => 'required',
                  'fecha_evento' => 'required',
                  'responsables_id' => 'required'
              ]);

@@ -28,7 +28,7 @@
                       </div>
                   </div>
                   <input type="hidden" class="form-control" id="floatingNumero"  name="numeros_id" placeholder="{{$numero->numero}}" value="{{$numero->id}}" required>
-                  <input type="hidden" class="form-control" id="floatingTotal"  name="valor" placeholder="{{$numero->valor}}" value="{{$numero->valor}}" required>
+                  <input type="hidden" class="form-control" id="floatingTotal"  name="valor" placeholder="{{$numero->eventos->valor}}" value="{{$numero->eventos->valor}}" required>
                     <div class="col-lg-9">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" required>

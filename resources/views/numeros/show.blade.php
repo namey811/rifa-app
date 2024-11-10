@@ -14,7 +14,6 @@
               <h5 class="card-title">{{$numero->numero}}</h5>
               <p>Estado: {{$numero->estado}}</p>
               <p>Evento: {{$numero->eventos->nombre}}</p>
-              <p>Valor: {{$numero->valor}}</p>
             </div>
             <div class="card-footer">
                 <a href="{{route('numeros.index')}}" class="btn btn-info">

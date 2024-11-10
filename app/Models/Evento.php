@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evento extends Model
 {
-    protected $fillable = ['nombre', 'descripcion', 'cifras', 'fecha_evento', 'responsables_id'];
-    protected $guarded = ['nombre', 'descripcion', 'cifras', 'fecha_evento', 'responsables_id'];
+    protected $fillable = ['nombre', 'descripcion', 'cifras', 'valor','fecha_evento', 'responsables_id'];
+    protected $guarded = ['nombre', 'descripcion', 'cifras', 'valor','fecha_evento', 'responsables_id'];
 
     public function Responsables()
     {

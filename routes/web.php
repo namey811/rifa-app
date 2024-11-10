@@ -9,6 +9,7 @@ use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/listar-numeros/{id}', [HomeController::class, 'listarnumeros'])->name('home.listar-numeros');
 Route::get('/venta-online/{id}', [HomeController::class, 'ventaonline'])->name('home.venta-online');
 
 Route::resource('clientes', ClienteController::class);
