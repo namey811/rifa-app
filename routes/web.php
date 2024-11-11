@@ -16,5 +16,7 @@ Route::resource('clientes', ClienteController::class);
 Route::resource('numeros', NumeroController::class);
 Route::resource('ventas', VentaController::class);
 Route::post('/ventas/storeonline', [VentaController::class, 'storeonline'])->name('ventas.storeonline');
+Route::get('/cargarlistanumerosevento/{id}', [VentaController::class, 'cargarlistanumerosevento']);
+Route::get('/ventas/consultanumeroscliente/{id}', [VentaController::class, 'consultanumeroscliente'])->name('consultaventaclient');
 Route::resource('responsables', ResponsableController::class);
 Route::resource('eventos', EventoController::class);

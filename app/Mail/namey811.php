@@ -13,12 +13,14 @@ class namey811 extends Mailable
 {
     use Queueable, SerializesModels;
 
+   public $idcliente;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($idc)
     {
-        //
+        $this->idcliente = $idc;
     }
 
     /**
@@ -38,6 +40,9 @@ class namey811 extends Mailable
     {
         return new Content(
             view: 'correo.notificacion',
+            with: [
+                'idcliente' => $this->idcliente,
+            ],
         );
     }
 

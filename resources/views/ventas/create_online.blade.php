@@ -27,6 +27,7 @@
                         <label for="floatingCedula">Cedula:</label>
                       </div>
                   </div>
+                  <input type="hidden" class="form-control" id="floatingEvento"  name="eventos_id" placeholder="{{$numero->eventos->id}}" value="{{$numero->eventos->id}}" required>
                   <input type="hidden" class="form-control" id="floatingNumero"  name="numeros_id" placeholder="{{$numero->numero}}" value="{{$numero->id}}" required>
                   <input type="hidden" class="form-control" id="floatingTotal"  name="valor" placeholder="{{$numero->eventos->valor}}" value="{{$numero->eventos->valor}}" required>
                     <div class="col-lg-9">

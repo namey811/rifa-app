@@ -23,6 +23,7 @@
                     <tr>
                       <th>ID</th>
                       <th>Cliente</th>
+                      <th>Evento</th>
                       <th>Numero</th>
                       <th>Acciones</th>
                     </tr>
@@ -32,6 +33,7 @@
                     <tr>
                       <td>{{$ventas->id}}</td>
                       <td>{{$ventas->clientes->nombre}} {{$ventas->clientes->apellido}}</td>
+                      <td>{{$ventas->eventos->nombre}}</td>
                       <td>{{$ventas->numeros->numero}}</td>
                         <td>
                           <a href="{{route('ventas.show', $ventas->id)}}" class="btn btn-light btn-sm"><i class="ri-tv-2-line"></i></a>

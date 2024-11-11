@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -38,7 +38,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('home')}}" class="logo d-flex align-items-center">
-        <img src="{{ asset('templates/niceadmin/assets/img/logo.png')}}" alt="">
+        <img src="{{ asset('templates/niceadmin/assets/img/logo.png')}}" alt="Logo">
         <span class="d-none d-lg-block">Rifa Online</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -95,7 +95,7 @@
       &copy; Copyright <strong><span>ITCloud S.A.S</span></strong>. Todos los derechos reservados.
     </div>
     <div class="credits">
-      Diseñado por <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      Diseñado por <a href="https://itcloud.com.co">Ivan Narvaez Mejia</a>
     </div>
   </footer><!-- End Footer -->
 
@@ -112,6 +112,7 @@
   <script src="{{ asset('templates/niceadmin/assets/vendor/php-email-form/validate.js')}}"></script>
 
   <script src="{{ asset('templates/niceadmin/assets/js/main.js')}}"></script>
+  @yield('js-customize')
 
 </body>
 </html>

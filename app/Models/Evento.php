@@ -15,6 +15,11 @@ class Evento extends Model
     }
     public function Numeros()
     {
-        return $this->hasOne(Numero::class);
+        return $this->hasOne(Numero::class, 'eventos_id');
+    }
+
+    public function Ventas()
+    {
+        return $this->belongsTo(Venta::class);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\namey811;
 use App\Models\Cliente;
+use App\Models\Evento;
 use App\Models\Numero;
 use App\Models\Venta;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class VentaController extends Controller
    {
       $numeros = Numero::with('eventos')->get();
       $clientes = Cliente::all();
-      $clientesventas = Venta::with('clientes','numeros')->get();
+      $clientesventas = Venta::with('clientes','numeros', 'eventos')->get();
          return view('ventas.index', compact('clientesventas'));
    }
 
@@ -25,9 +26,24 @@ class VentaController extends Controller
    {
       //$numeros = Numero::where('estado', 'Disponible')->get();
       $numeroseventos = Numero::with('eventos')->get();
+      $eventosnumeros = Evento::with('numeros')->get();
       $clientes = Cliente::all();
-      return view('ventas.create', compact('numeroseventos', 'clientes'));
+      return view('ventas.create', compact('numeroseventos', 'eventosnumeros','clientes'));
    }
+
+   public function cargarlistanumerosevento($id)
+{
+   $valoresLista2 = Numero::where('eventos_id', $id)
+   ->where('estado', 'Disponible')
+   ->get();
+   return response()->json($valoresLista2);
+}
+
+public function consultanumeroscliente($id)
+{
+   $numeroscliente = Venta::with('clientes','numeros', 'eventos')->findOrFail($id);
+   return view('ventas.detalle', compact('numeroscliente'));
+}
 
      // Guardar un nuevo cliente en la base de datos
    public function storeonline(Request $request)
@@ -52,32 +68,39 @@ class VentaController extends Controller
             'email' => $request->email,
             'estado' => $request->estado,
          ]);
-         Venta::create([
+         $idcliente = Cliente::where('email', $request->email)->first()->id;
+
+         $registro = Venta::create([
+            'eventos_id' => $request->eventos_id,
+            'clientes_id' => $idcliente,
             'numeros_id' => $request->numeros_id,
-            'clientes_id' => Cliente::where('email', $request->email)->first()->id,
             'total' => $request->valor,
             'saldo' => $request->valor,
          ]);
+         $ventaid = $registro->id;
+
          $numero = Numero::findOrFail($request->numeros_id);
          $numero->update([
             'estado' => 'Vendido',
          ]);
    
-      #Mail::to($request->email)->send(new namey811());
+      Mail::to($request->email)->send(new namey811($ventaid));
 
-         return redirect()->route('home')->with('success', 'Venta realizada exitosamente, revisa tu correo electronico donde encontraras la informacion de la compra.');
+         return redirect()->route('home')->with('success', 'Venta realizada exitosamente, revisa tu correo electronico donde encontraras el detalle de tu compra.');
    }
 
    public function store(Request $request)
    {
          $request->validate([
+            'eventos_id' => 'required',
             'clientes_id' => 'required',
             'numeros_id' => 'required',
             'valor' => 'required'
          ]);
          Venta::create([
-            'numeros_id' => $request->numeros_id,
+            'eventos_id' => $request->eventos_id,
             'clientes_id' => $request->clientes_id,
+            'numeros_id' => $request->numeros_id,
             'total' => $request->valor,
             'saldo' => $request->valor,
          ]);
