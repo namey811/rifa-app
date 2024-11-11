@@ -42,13 +42,13 @@
                       </select>
                       <label for="floatingSelect">Cifras:</label>
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingValor" placeholder="Valor" name="valor" required>
-                        <label for="floatingNombre">Valor Boleto:</label>
-                      </div>
                   </div>
-                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingValor" placeholder="Valor" name="valor" value="{{$eventoresponsable->valor}}" required>
+                      <label for="floatingNombre">Valor Boleto:</label>
+                    </div>
+                </div>
                   <div class="col-md-4">
                       <div class="form-floating">
                         <input type="date" class="form-control" id="floatingFecha" placeholder="Fecha Evento" name="fecha_evento" value="{{$eventoresponsable->fecha_evento}}" required>

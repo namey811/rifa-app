@@ -24,7 +24,7 @@
                         <h5 class="card-title">{{$event->nombre}}</h5>
                         <p class="card-text">Descripcion: {{$event->descripcion}}</p>
                         <p class="card-text">Valor: {{$event->valor}}</p>
-                        <p class="card-text">Fecha: {{$event->fecha}}</p>
+                        <p class="card-text">Fecha: {{$event->fecha_evento}}</p>
                         <a href="{{route('home.listar-numeros', $event->id)}}" class="btn btn-primary btn-sm" >Ver Numeros</a>
                       </div>
                     </div>

@@ -23,9 +23,10 @@ class VentaController extends Controller
      // Mostrar el formulario para crear un nuevo cliente
    public function create()
    {
-      $numeros = Numero::where('estado', 'Disponible')->get();
+      //$numeros = Numero::where('estado', 'Disponible')->get();
+      $numeroseventos = Numero::with('eventos')->get();
       $clientes = Cliente::all();
-      return view('ventas.create', compact('numeros', 'clientes'));
+      return view('ventas.create', compact('numeroseventos', 'clientes'));
    }
 
      // Guardar un nuevo cliente en la base de datos

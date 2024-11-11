@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-lg-9">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" required>
+                          <input type="number" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" required>
                           <label for="floatingTel">Telefono:</label>
                         </div>
                     </div>
