@@ -61,6 +61,7 @@
                           <label for="floatingEmail">Email:</label>
                         </div>
                     </div>
+                    <!--
                     <div class="col-lg-9">
                         <div class="form-floating mb-3">
                           <select class="form-select" id="floatingSelect" aria-label="Estado" name="estado" required>
@@ -70,6 +71,8 @@
                           <label for="floatingSelect">Estado</label>
                         </div>
                       </div>
+                    -->
+                    <input type="hidden" class="form-control" id="floatingEstado"  name="estado" value="1" required>
                       <div class="text-center">
                         <button type="submit" class="btn btn-primary">Guardar</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>
