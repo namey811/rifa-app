@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -38,7 +38,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('home')}}" class="logo d-flex align-items-center">
-        <img src="{{ asset('templates/niceadmin/assets/img/logo.png')}}" alt="">
+        <img src="{{ asset('templates/niceadmin/assets/img/logo.png')}}" alt="Logo">
         <span class="d-none d-lg-block">Rifa Online</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -76,45 +76,6 @@
           <span>Home</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Maestros</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="{{request()->routeIs('clientes.index', 'numeros.index', 'ventas.index', 'responsables.index', 'eventos.index') ? 'nav-content collapse show' : 'nav-content collapse' }}" data-bs-parent="#sidebar-nav">
-          
-          <li>
-            <a href="{{route('responsables.index')}}" class="{{request()->routeIs('responsables.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Responsables</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('eventos.index')}}" class="{{request()->routeIs('eventos.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Eventos</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('clientes.index')}}" class="{{request()->routeIs('clientes.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Clientes</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{{route('numeros.index')}}" class="{{request()->routeIs('numeros.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Numeros</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{{route('ventas.index')}}" class="{{request()->routeIs('ventas.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Ventas</span>
-            </a>
-          </li>
-
-
-        </ul>
-        
-      </li><!-- End Components Nav -->
       </ul>
 
   </aside><!-- End Sidebar-->
@@ -134,11 +95,7 @@
       &copy; Copyright <strong><span>ITCloud S.A.S</span></strong>. Todos los derechos reservados.
     </div>
     <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Diseñado por <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      Diseñado por <a href="https://itcloud.com.co">Ivan Narvaez Mejia</a>
     </div>
   </footer><!-- End Footer -->
 
@@ -155,6 +112,7 @@
   <script src="{{ asset('templates/niceadmin/assets/vendor/php-email-form/validate.js')}}"></script>
 
   <script src="{{ asset('templates/niceadmin/assets/js/main.js')}}"></script>
+  @yield('js-customize')
 
 </body>
 </html>
