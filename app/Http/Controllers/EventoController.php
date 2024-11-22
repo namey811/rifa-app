@@ -21,7 +21,7 @@ class EventoController extends Controller
           // Mostrar el formulario para crear un nuevo cliente
          public function create()
          {
-             $responsables = Responsable::where('estado', '1')->get();
+             $responsables = Responsable::where('estado', 'Activo')->get();
              return view('eventos.create', compact('responsables'));
          }
      
@@ -34,6 +34,8 @@ class EventoController extends Controller
                  'cifras' => 'required',
                  'valor' => 'required',
                  'fecha_evento' => 'required',
+                 'fecha_inicio' => 'required',
+                 'fecha_fin' => 'required',
                  'responsables_id' => 'required'
                  
              ]);
@@ -86,7 +88,7 @@ class EventoController extends Controller
          public function edit($id)
          {
              $eventoresponsable = Evento::with('responsables')->findOrFail($id);
-             $responsables = Responsable::where('estado', '1')->get();
+             $responsables = Responsable::where('estado', 'Activo')->get();
              return view('eventos.edit', compact('eventoresponsable', 'responsables'));
          }
      
@@ -99,6 +101,8 @@ class EventoController extends Controller
                  'cifras' => 'required',
                  'valor' => 'required',
                  'fecha_evento' => 'required',
+                 'fecha_inicio' => 'required|date',
+                 'fecha_fin' => 'required|date',
                  'responsables_id' => 'required'
              ]);
               //dd($request->estado);

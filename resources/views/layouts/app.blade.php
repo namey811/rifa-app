@@ -81,7 +81,7 @@
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Maestros</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="{{request()->routeIs('clientes.index', 'numeros.index', 'ventas.index', 'responsables.index', 'eventos.index') ? 'nav-content collapse show' : 'nav-content collapse' }}" data-bs-parent="#sidebar-nav">
+        <ul id="components-nav" class="{{request()->routeIs('clientes.index', 'numeros.index', 'ventas.index', 'responsables.index', 'eventos.index', 'pagos.index') ? 'nav-content collapse show' : 'nav-content collapse' }}" data-bs-parent="#sidebar-nav">
           
           <li>
             <a href="{{route('responsables.index')}}" class="{{request()->routeIs('responsables.index') ? 'active' : '' }}">
@@ -108,6 +108,12 @@
           <li>
             <a href="{{route('ventas.index')}}" class="{{request()->routeIs('ventas.index') ? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Ventas</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{{route('pagos.index')}}" class="{{request()->routeIs('pagos.index') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Pagos</span>
             </a>
           </li>
 
@@ -155,6 +161,6 @@
   <script src="{{ asset('templates/niceadmin/assets/vendor/php-email-form/validate.js')}}"></script>
 
   <script src="{{ asset('templates/niceadmin/assets/js/main.js')}}"></script>
-
+  @yield('js-customize')
 </body>
 </html>

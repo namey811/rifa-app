@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('responsables', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('cedula');
-            $table->string('nombre');
-            $table->string('apellido');
+            $table->string('nombre',255);
+            $table->string('apellido',255);
             $table->string('direccion');
-            $table->string('telefono');
-            $table->string('email')->unique();
-            $table->string('estado')->default(1);
+            $table->string('telefono', 20);
+            $table->string('email',200)->unique();
+            $table->string('estado',10)->default("Activo");
             $table->timestamps();
         });
     }

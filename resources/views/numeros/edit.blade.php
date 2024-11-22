@@ -24,7 +24,7 @@
                   @method('PUT')
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingNombre" placeholder="Numero" name="numero" required value="{{ $numero->numero }}">
+                          <input type="text" class="form-control" id="floatingNombre" placeholder="Numero" name="numero" required value="{{ old('numero',$numero->numero) }}">
                           <label for="floatingNombre">Numero:</label>
                         </div>
                     </div>

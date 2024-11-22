@@ -23,13 +23,13 @@
                     @csrf <!-- Protección contra CSRF -->
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" required>
+                          <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" value="{{ old('nombre') }}" required>
                           <label for="floatingNombre">Nombre:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingDesc" placeholder="Descripcion" name="descripcion" required>
+                          <input type="text" class="form-control" id="floatingDesc" placeholder="Descripcion" name="descripcion" value="{{ old('descripcion') }}" required>
                           <label for="floatingDesc">Descripcion:</label>
                         </div>
                     </div>
@@ -44,16 +44,28 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingValor" placeholder="Valor" name="valor" required>
+                        <input type="number" class="form-control" id="floatingValor" placeholder="Valor" name="valor" value="{{ old('valor') }}" required>
                         <label for="floatingNombre">Valor Boleto:</label>
                       </div>
                   </div>
+                  <div class="col-md-4">
+                    <div class="form-floating">
+                      <input type="date" class="form-control" id="floatingFechaE" placeholder="Fecha Inicio Evento" name="fecha_evento" value="{{ old('fecha_evento') }}" required>
+                      <label for="floatingFechaE">Fecha Evento:</label>
+                    </div>
+                </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="date" class="form-control" id="floatingFecha" placeholder="Fecha Evento" name="fecha_evento" required>
-                          <label for="floatingFecha">Fecha Evento:</label>
+                          <input type="date" class="form-control" id="floatingFechaI" placeholder="Fecha Inicio Evento" name="fecha_inicio" value="{{ old('fecha_inicio') }}" required>
+                          <label for="floatingFechaI">Fecha Inicio:</label>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                      <div class="form-floating">
+                        <input type="date" class="form-control" id="floatingFechaF" placeholder="Fecha Fin Evento" name="fecha_fin" value="{{ old('fecha_fin') }}" required>
+                        <label for="floatingFechaF">Fecha Fin:</label>
+                      </div>
+                  </div>
                     <div class="col-md-4">
                         <div class="form-floating mb-3">
                           <select class="form-select" id="floatingSelect2" aria-label="Responsable" name="responsables_id" required>

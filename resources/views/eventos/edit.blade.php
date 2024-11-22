@@ -24,13 +24,13 @@
                     @method('PUT')
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" value="{{$eventoresponsable->nombre}}" required>
+                        <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" value="{{  old('nombre', $eventoresponsable->nombre)}}" required>
                         <label for="floatingNombre">Nombre:</label>
                       </div>
                   </div>
                   <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingDesc" placeholder="Descripcion" name="descripcion" value="{{$eventoresponsable->descripcion}}" required>
+                        <input type="text" class="form-control" id="floatingDesc" placeholder="Descripcion" name="descripcion" value="{{  old('descripcion', $eventoresponsable->descripcion)}}" required>
                         <label for="floatingDesc">Descripcion:</label>
                       </div>
                   </div>
@@ -45,16 +45,28 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingValor" placeholder="Valor" name="valor" value="{{$eventoresponsable->valor}}" required>
+                      <input type="text" class="form-control" id="floatingValor" placeholder="Valor" name="valor" value="{{  old('valor', $eventoresponsable->valor)}}" required>
                       <label for="floatingNombre">Valor Boleto:</label>
                     </div>
                 </div>
                   <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="date" class="form-control" id="floatingFecha" placeholder="Fecha Evento" name="fecha_evento" value="{{$eventoresponsable->fecha_evento}}" required>
+                        <input type="date" class="form-control" id="floatingFecha" placeholder="Fecha Evento" name="fecha_evento" value="{{  old('fecha_evento',$eventoresponsable->fecha_evento)}}" required>
                         <label for="floatingFecha">Fecha Evento:</label>
                       </div>
                   </div>
+                  <div class="col-md-4">
+                    <div class="form-floating">
+                      <input type="date" class="form-control" id="floatingFechaI" placeholder="Fecha Inicio" name="fecha_inicio" value="{{  old('fecha_inicio',$eventoresponsable->fecha_inicio)}}" required>
+                      <label for="floatingFecha">Fecha Inicio:</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-floating">
+                    <input type="date" class="form-control" id="floatingFecha" placeholder="Fecha Fin" name="fecha_fin" value="{{  old('fecha_fin',$eventoresponsable->fecha_fin)}}" required>
+                    <label for="floatingFecha">Fecha Fin:</label>
+                  </div>
+              </div>
                   <div class="col-md-4">
                       <div class="form-floating mb-3">
                         <select class="form-select" id="floatingSelect2" aria-label="Responsable" name="responsables_id" required>

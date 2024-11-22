@@ -23,41 +23,42 @@
                     @csrf <!-- Protección contra CSRF -->
                     <div class="col-lg-9">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingCedula" placeholder="Cedula" name="cedula" required>
+                        <input type="number" class="form-control" placeholder="Cedula" name="cedula" id="cedula" value="{{ old('cedula') }}" required>
                         <label for="floatingCedula">Cedula:</label>
                       </div>
+                     <!-- <span id="cedula-feedback" style="color: red;"></span>-->
                   </div>
                   <input type="hidden" class="form-control" id="floatingEvento"  name="eventos_id" placeholder="{{$numero->eventos->id}}" value="{{$numero->eventos->id}}" required>
                   <input type="hidden" class="form-control" id="floatingNumero"  name="numeros_id" placeholder="{{$numero->numero}}" value="{{$numero->id}}" required>
                   <input type="hidden" class="form-control" id="floatingTotal"  name="valor" placeholder="{{$numero->eventos->valor}}" value="{{$numero->eventos->valor}}" required>
                     <div class="col-lg-9">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" required>
+                            <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" value="{{ old('nombre') }}" required>
                             
                           <label for="floatingNombre">Nombre:</label>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingApellido" placeholder="Apellido" name="apellido" required>
+                          <input type="text" class="form-control" id="floatingApellido" placeholder="Apellido" name="apellido" value="{{ old('apellido') }}" required>
                           <label for="floatingApellido">Apellido:</label>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingDir" placeholder="Direccion" name="direccion" required>
+                          <input type="text" class="form-control" id="floatingDir" placeholder="Direccion" name="direccion" value="{{ old('direccion') }}" required>
                           <label for="floatingDir">Direccion:</label>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="form-floating">
-                          <input type="number" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" required>
+                          <input type="number" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" value="{{ old('telefono') }}" required>
                           <label for="floatingTel">Telefono:</label>
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="form-floating">
-                          <input type="email" class="form-control" id="floatingEmail" placeholder="Email" name="email" required>
+                          <input type="email" class="form-control" id="floatingEmail" placeholder="Email" name="email" value="{{ old('email') }}"required>
                           <label for="floatingEmail">Email:</label>
                         </div>
                     </div>
@@ -72,7 +73,7 @@
                         </div>
                       </div>
                     -->
-                    <input type="hidden" class="form-control" id="floatingEstado"  name="estado" value="1" required>
+                    <input type="hidden" class="form-control" id="floatingEstado"  name="estado" value="Activo" required>
                       <div class="text-center">
                         <button type="submit" class="btn btn-primary">Guardar</button>
                         <button type="reset" class="btn btn-secondary">Reset</button>
@@ -96,4 +97,49 @@
     </div>
   </section>
     
+@endsection
+@section('js-customize')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+$(document).ready(function () {
+            $('#cedula').on('change', function () {
+                let cedula = $(this).val();
+
+                if (cedula.length > 0) {
+                    $.ajax({
+                        url: "{{ route('validate.cedula') }}",
+                        type: "GET",
+                        data: { cedula: cedula },
+                        success: function (response) {
+                            if (response.exists) {
+                                //$('#cedula-feedback').text('La cédula ya está registrada.');
+                                let cliente = response.cliente[0];
+                                $('#floatingNombre').val(cliente.nombre);
+                                $('#floatingApellido').val(cliente.apellido);
+                                $('#floatingDir').val(cliente.direccion);
+                                $('#floatingTel').val(cliente.telefono);
+                                $('#floatingEmail').val(cliente.email);
+                            } else {
+                                $('#cedula-feedback').text('');
+                                $('#floatingNombre').val('');
+                                $('#floatingApellido').val('');
+                                $('#floatingDir').val('');
+                                $('#floatingTel').val('');
+                                $('#floatingEmail').val('');
+                            }
+                        },
+                        error: function () {
+                            $('#cedula-feedback').text('Error al validar la cédula.');
+                        }
+                    });
+                } else {
+                    $('#cedula-feedback').text('');
+                }
+            });
+        });
+
+
+</script>
+
 @endsection

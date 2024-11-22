@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venta extends Model
 {
-    protected $fillable = ['eventos_id','clientes_id', 'numeros_id', 'total', 'abonado', 'saldo'];
-    protected $guarded = ['eventos_id','clientes_id', 'numeros_id','total', 'abonado', 'saldo'];
+    protected $fillable = ['eventos_id','clientes_id', 'numeros_id', 'total', 'abonado', 'saldo','estado'];
+    protected $guarded = ['eventos_id','clientes_id', 'numeros_id','total', 'abonado', 'saldo','estado'];
 
     public function Clientes()
     {

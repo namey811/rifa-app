@@ -16,7 +16,7 @@
               <p>Direccion: {{$responsable->direccion}}</p>
                   <p>{{$responsable->telefono}}</p>
                   <p>Correo: {{$responsable->email}}</p>
-                  <p>Estado: @if ($responsable->estado == 1)
+                  <p>Estado: @if ($responsable->estado == "Activo")
                     <span class="badge bg-success"><i class="ri-check-line"></i></span>
                     @else 
                     <span class="badge bg-danger"><i class="ri-close-fill"></i></span>

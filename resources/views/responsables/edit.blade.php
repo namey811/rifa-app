@@ -24,45 +24,45 @@
                     @method('PUT')
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingCedula" placeholder="Cedula" name="cedula" value="{{ $responsable->cedula }}" required>
+                        <input type="text" class="form-control" id="floatingCedula" placeholder="Cedula" name="cedula" value="{{ old('cedula',$responsable->cedula) }}" required>
                         <label for="floatingCedula">Cedula:</label>
                       </div>
                   </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" required value="{{ $responsable->nombre }}">
+                          <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" required value="{{ old('nombre',$responsable->nombre) }}">
                           <label for="floatingNombre">Nombre:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingApellido" placeholder="Apellido" name="apellido" required value="{{ $responsable->apellido }}">
+                          <input type="text" class="form-control" id="floatingApellido" placeholder="Apellido" name="apellido" required value="{{ old('apellido',$responsable->apellido) }}">
                           <label for="floatingApellido">Apellido:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingDir" placeholder="Direccion" name="direccion" required value="{{ $responsable->direccion }}">
+                          <input type="text" class="form-control" id="floatingDir" placeholder="Direccion" name="direccion" required value="{{ old('direccion',$responsable->direccion) }}">
                           <label for="floatingDir">Direccion:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" required value="{{ $responsable->telefono }}">
+                          <input type="text" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" required value="{{ old('telefono',$responsable->telefono) }}">
                           <label for="floatingTel">Telefono:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="email" class="form-control" id="floatingEmail" placeholder="Email" name="email" required value="{{ $responsable->email }}">
+                          <input type="email" class="form-control" id="floatingEmail" placeholder="Email" name="email" required value="{{ old('email',$responsable->email) }}">
                           <label for="floatingEmail">Email:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating mb-3">
                           <select class="form-select" id="floatingSelect" aria-label="Estado" name="estado" required>
-                            <option value="1">Activo</option>
-                            <option value="0">Inactivo</option>
+                            <option value="Activo">Activo</option>
+                            <option value="Inactivo">Inactivo</option>
                           </select>
                           <label for="floatingSelect">Estado</label>
                         </div>

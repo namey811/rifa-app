@@ -16,6 +16,7 @@
               <p>Descripcion: {{$numeroscliente->eventos->descripcion}}</p>
               <p>Fecha: {{$numeroscliente->eventos->fecha_evento}}</p>
               <p>Numeros: {{$numeroscliente->numeros->numero}}</p>
+              <p>Estado: {{$numeroscliente->estado}}</p>
               <h5>Haz tu pago por transferencia</h5>
               <img class="img-thumbnail" src="{{ asset('templates/niceadmin/assets/img/QR.jpg')}}" alt="">
             </div>

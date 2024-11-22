@@ -17,7 +17,7 @@
               <p>{{$cliente->telefono}}</p>
               <p>Correo: {{$cliente->email}}</p>
               <p>Estado: 
-                @if ($cliente->estado == 1)
+                @if ($cliente->estado == "Activo")
                     <span class="badge bg-success"><i class="ri-check-line"></i></span>
                 @else 
                     <span class="badge bg-danger"><i class="ri-close-fill"></i></span>

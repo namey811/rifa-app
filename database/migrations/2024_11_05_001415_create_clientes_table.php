@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('direccion', 255);
             $table->string('telefono', 15);
             $table->string('email', 255)->unique();
-            $table->string('estado', 2)->default('1');
+            $table->string('estado', 10)->default('Activo');
             $table->timestamps();
         });
     }

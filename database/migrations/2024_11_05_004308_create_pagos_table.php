@@ -21,7 +21,6 @@ return new class extends Migration
             $table->date('fecha_pago');
             $table->foreign('clientes_id')->references('id')->on('clientes');
             $table->foreign('ventas_id')->references('id')->on('ventas');
-            $table->string('estado');
             $table->timestamps();
         });
     }

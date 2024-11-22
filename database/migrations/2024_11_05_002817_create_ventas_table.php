@@ -22,6 +22,7 @@ return new class extends Migration
             $table->double('total');
             $table->double('abonado')->default(0);
             $table->double('saldo');
+            $table->string('estado')->default('No pagado');
             $table->timestamps();
         });
     }

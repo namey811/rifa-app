@@ -23,45 +23,45 @@
                     @csrf <!-- Protección contra CSRF -->
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingCedula" placeholder="Cedula" name="cedula" required>
+                        <input type="text" class="form-control" id="floatingCedula" placeholder="Cedula" name="cedula" value="{{ old('cedula') }}" required>
                         <label for="floatingCedula">Cedula:</label>
                       </div>
                   </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" required>
+                          <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" value="{{ old('nombre') }}" required>
                           <label for="floatingNombre">Nombre:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingApellido" placeholder="Apellido" name="apellido" required>
+                          <input type="text" class="form-control" id="floatingApellido" placeholder="Apellido" name="apellido" value="{{ old('apellido') }}" required>
                           <label for="floatingApellido">Apellido:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingDir" placeholder="Direccion" name="direccion" required>
+                          <input type="text" class="form-control" id="floatingDir" placeholder="Direccion" name="direccion" value="{{ old('direccion') }}" required>
                           <label for="floatingDir">Direccion:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" required>
+                          <input type="text" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" value="{{ old('telefono') }}" required>
                           <label for="floatingTel">Telefono:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="email" class="form-control" id="floatingEmail" placeholder="Email" name="email" required>
+                          <input type="email" class="form-control" id="floatingEmail" placeholder="Email" name="email" value="{{ old('email') }}" required>
                           <label for="floatingEmail">Email:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating mb-3">
                           <select class="form-select" id="floatingSelect" aria-label="Estado" name="estado" required>
-                            <option value="1" selected>Activo</option>
-                            <option value="0">Inactivo</option>
+                            <option value="Activo" selected>Activo</option>
+                            <option value="Inactivo">Inactivo</option>
                           </select>
                           <label for="floatingSelect">Estado</label>
                         </div>

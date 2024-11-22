@@ -41,7 +41,7 @@
                       <td>{{$responsable->telefono}}</td>
                       <td>{{$responsable->email}}</td>
                       <td>
-                      @if ($responsable->estado == 1)
+                      @if ($responsable->estado == "Activo")
                       <span class="badge bg-success"><i class="ri-check-line"></i></span>
                       @else 
                       <span class="badge bg-danger"><i class="ri-close-fill"></i></span>

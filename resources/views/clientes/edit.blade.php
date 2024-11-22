@@ -24,37 +24,37 @@
                     @method('PUT')
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingCedula" placeholder="Cedula" name="cedula" value="{{ $cliente->cedula }}" required>
+                        <input type="text" class="form-control" id="floatingCedula" placeholder="Cedula" name="cedula" value="{{  old('cedula', $cliente->cedula) }}" required>
                         <label for="floatingCedula">Cedula:</label>
                       </div>
                   </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" required value="{{ $cliente->nombre }}">
+                          <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre" name="nombre" required value="{{  old('nombre',$cliente->nombre) }}">
                           <label for="floatingNombre">Nombre:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingApellido" placeholder="Apellido" name="apellido" required value="{{ $cliente->apellido }}">
+                          <input type="text" class="form-control" id="floatingApellido" placeholder="Apellido" name="apellido" required value="{{  old('apellido',$cliente->apellido) }}">
                           <label for="floatingApellido">Apellido:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingDir" placeholder="Direccion" name="direccion" required value="{{ $cliente->direccion }}">
+                          <input type="text" class="form-control" id="floatingDir" placeholder="Direccion" name="direccion" required value="{{  old('direccion',$cliente->direccion) }}">
                           <label for="floatingDir">Direccion:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" required value="{{ $cliente->telefono }}">
+                          <input type="text" class="form-control" id="floatingTel" placeholder="Telefono" name="telefono" required value="{{  old('telefono',$cliente->telefono) }}">
                           <label for="floatingTel">Telefono:</label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="email" class="form-control" id="floatingEmail" placeholder="Email" name="email" required value="{{ $cliente->email }}">
+                          <input type="email" class="form-control" id="floatingEmail" placeholder="Email" name="email" required value="{{  old('email',$cliente->email) }}">
                           <label for="floatingEmail">Email:</label>
                         </div>
                     </div>

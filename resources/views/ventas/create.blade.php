@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingValor" placeholder="Valor" name="valor" value="" required>
+                        <input type="text" class="form-control" id="floatingValor" placeholder="Valor" name="valor" value="{{ old('valor', "") }} required>
                         <label for="floatingValor">Valor Boleto:</label>
                       </div>
                   </div>

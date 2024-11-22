@@ -45,6 +45,18 @@ public function consultanumeroscliente($id)
    return view('ventas.detalle', compact('numeroscliente'));
 }
 
+public function validateCedula(Request $request)
+{
+    $cedula = $request->input('cedula');
+    $exists = Cliente::where('cedula', $cedula)->exists();
+    $cliente = Cliente::where('cedula', $cedula)->get();
+
+    return response()->json([
+      'exists' => $exists,
+      'cliente' => $cliente
+   ]);
+}
+
      // Guardar un nuevo cliente en la base de datos
    public function storeonline(Request $request)
    {

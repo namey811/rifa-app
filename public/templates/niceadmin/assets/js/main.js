@@ -280,10 +280,13 @@
 
   /**
    * Initiate Datatables
-   */
+*/
+
+
   const datatables = select('.datatable', true)
   datatables.forEach(datatable => {
     new simpleDatatables.DataTable(datatable, {
+      responsive: true,
       perPageSelect: [5, 10, 15, ["Todos", -1]],
       columns: [{
           select: 2,
@@ -301,6 +304,7 @@
       ]
     });
   })
+
 
   /**
    * Autoresize echart charts

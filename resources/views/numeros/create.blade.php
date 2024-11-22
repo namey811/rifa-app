@@ -23,7 +23,7 @@
                     @csrf <!-- Protección contra CSRF -->
                     <div class="col-md-4">
                         <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingNombre" placeholder="Numero" name="numero" required>
+                          <input type="text" class="form-control" id="floatingNombre" placeholder="Numero" name="numero" value="{{ old('numero') }} required>
                           <label for="floatingNombre">Numero:</label>
                         </div>
                     </div>
