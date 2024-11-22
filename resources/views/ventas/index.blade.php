@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css-customize')
+<link href="{{ asset('templates/niceadmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+<link href="{{ asset('templates/niceadmin/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+@endsection
 
 @section('content')
 
@@ -73,4 +77,8 @@
     </div>
   </section>
     
+@endsection
+
+@section('js-customize')
+<script src="{{ asset('templates/niceadmin/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
 @endsection

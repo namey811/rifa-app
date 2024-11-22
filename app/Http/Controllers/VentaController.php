@@ -129,15 +129,15 @@ public function validateCedula(Request $request)
      // Mostrar un cliente específico
    public function show($id)
    {
-         $venta = Numero::with('eventos')->findOrFail($id);
-         return view('ventas.show', compact('venta'));
+      $numeroscliente = Venta::with('clientes','numeros', 'eventos')->findOrFail($id);
+      return view('ventas.show', compact('numeroscliente'));
    }
 
    // Mostrar el formulario para editar un cliente
    public function edit($id)
    {
-      $numero = Numero::with('eventos')->findOrFail($id);
-      return view('ventas.edit', compact('numero'));
+      $numeroscliente = Venta::with('clientes','numeros', 'eventos')->findOrFail($id);
+      return view('ventas.edit', compact('numeroscliente'));
    }
 
      // Actualizar un cliente en la base de datos

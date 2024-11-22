@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css-customize')
+<link href="{{ asset('templates/niceadmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+<link href="{{ asset('templates/niceadmin/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+@endsection
 
 @section('content')
 
@@ -18,34 +22,33 @@
                 <a href="{{route('numeros.create')}}" class="btn btn-primary"><i class=" ri-add-circle-line"></i> Agregar</a>
                 <a href="{{route('numeros.index')}}" class="btn btn-info"><i class=" ri-refresh-line"></i> Actualizar</a>
                 <!-- Table with stripped rows -->
-                <table class="table datatable">
+                <table class="table datatable responsive">
                   <thead>
                     <tr>
-                      <th>Numeros</th>
+                      <th>ID</th>
+                      <th>Numero</th>
                       <th>Estado</th>
                       <th>Evento</th>
                       <th>Acciones</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($numeroseventos as $numero)
-                      
+                    @foreach($numeroseventos as $item)
                     <tr>
-                      <td>{{$numero->numero}}</td>
-                      <td>{{$numero->estado}}</td>
-                      <td>{{$numero->eventos->nombre}}</td>
+                      <td>{{$item->id}}</td>
+                      <td>{{$item->numero}}</td>
+                      <td>{{$item->estado}}</td>
+                      <td>{{$item->eventos->nombre}}</td>
                         <td>
-                          <a href="{{route('numeros.show', $numero->id)}}" class="btn btn-light btn-sm"><i class="ri-tv-2-line"></i></a>
-                          <a href="{{route('numeros.edit', $numero->id)}}" class="btn btn-info btn-sm"><i class="ri-edit-2-line"></i></a>
-                          <form action="{{route('numeros.destroy', $numero->id)}}" method="POST" onsubmit="return confirm('Esta seguro de eliminar este registro ?')">
+                          <a href="{{route('numeros.show', $item->id)}}" class="btn btn-light btn-sm"><i class="ri-tv-2-line"></i></a>
+                          <a href="{{route('numeros.edit', $item->id)}}" class="btn btn-info btn-sm"><i class="ri-edit-2-line"></i></a>
+                          <form action="{{route('numeros.destroy', $item->id)}}" method="POST" onsubmit="return confirm('Esta seguro de eliminar este registro ?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"><i class="ri-delete-bin-5-line"></i></button>
                           </form>
                         </td>
                     </tr>
-                    </tr>
-                    
                     @endforeach
                 </tbody>
             </table>
@@ -56,4 +59,8 @@
     </div>
   </section>
     
+@endsection
+
+@section('js-customize')
+<script src="{{ asset('templates/niceadmin/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
 @endsection

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('css-customize')
+<link href="{{ asset('templates/niceadmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+@endsection
 
 @section('content')
 
@@ -17,8 +20,10 @@
               <p>Fecha: {{$numeroscliente->eventos->fecha_evento}}</p>
               <p>Numeros: {{$numeroscliente->numeros->numero}}</p>
               <p>Estado: {{$numeroscliente->estado}}</p>
-              <h5>Haz tu pago por transferencia</h5>
-              <img class="img-thumbnail" src="{{ asset('templates/niceadmin/assets/img/QR.jpg')}}" alt="">
+              <h5>Haz tu pago por transferencia, puedes descargar el QR dando click en la imagen.</h5>
+              <a href="{{ asset('templates/niceadmin/assets/img/QR.jpg')}}" download="QR ITCloud">
+                <img class="img-thumbnail" src="{{ asset('templates/niceadmin/assets/img/QR.jpg')}}" alt="QR Pagos">
+              </a>
             </div>
             <div class="card-footer">
                 <a href="{{route('home')}}" class="btn btn-info">

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('css-customize')
+<link href="{{ asset('templates/niceadmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+@endsection
 
 @section('content')
 
@@ -62,13 +65,13 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-floating">
-                        <input type="number" class="form-control" id="floatingMonto" placeholder="Monto" name="monto" value="{{ old('valor') }}" required>
+                        <input type="number" class="form-control" id="floatingMonto" placeholder="Monto" name="monto" value="{{ old('monto') }}" required>
                         <label for="floatingMonto">Valor de pago:</label>
                       </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating">
-                      <input type="date" class="form-control" id="floatingFechaP" placeholder="Fecha Inicio Evento" name="fecha_pago" value="{{ old('fecha_evento', date('Y-m-d')) }}" required>
+                      <input type="date" class="form-control" id="floatingFechaP" placeholder="Fecha Pago" name="fecha_pago" value="{{ old('fecha_pago', date('Y-m-d')) }}" required>
                       <label for="floatingFechaP">Fecha Pago:</label>
                     </div>
                 </div>
@@ -102,6 +105,8 @@
                         $('#floatingSelectVenta').empty();
                         $.each(data, function(key, value) {
                             $('#floatingSelectVenta').append('<option value="' + value.id + '">Numero: ' + value.numeros.numero + ' | Valor: ' +value.saldo+ '</option>');
+                            console.log(value.monto);
+                            $('#floatingMonto').val(value.saldo);
                         });
                     }
                 });

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('css-customize')
+<link href="{{ asset('templates/niceadmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+@endsection
 
 @section('content')
 

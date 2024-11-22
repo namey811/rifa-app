@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('css-customize')
+<link href="{{ asset('templates/niceadmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+@endsection
 
 @section('content')
 
@@ -9,17 +12,21 @@
             
                       <!-- Card with header and footer -->
           <div class="card">
-            <div class="card-header">Detalle Venta</div>
+            <div class="card-header">Detalle Venta Cliente</div>
             <div class="card-body">
-              <h5 class="card-title">{{$evento->nombre}}</h5>
-              <h4 class="card-title">{{$evento->descripcion}}</h4>
-              <p>Cifras: {{$evento->cifras}}</p>
-              <p>Valor Boleto: {{$evento->valor}}</p>
-              <p>Fecha: {{$evento->fecha_evento}}</p>
-              <p>Responsable: {{$evento->responsables->nombre}} {{$evento->responsables->apellido}}</p>
+              <h5 class="card-title">{{$numeroscliente->clientes->nombre}} {{$numeroscliente->clientes->apellido}}</h5>
+              <p>Evento: {{$numeroscliente->eventos->nombre}}</p>
+              <p>Descripcion: {{$numeroscliente->eventos->descripcion}}</p>
+              <p>Fecha: {{$numeroscliente->eventos->fecha_evento}}</p>
+              <p>Numeros: {{$numeroscliente->numeros->numero}}</p>
+              <p>Estado: {{$numeroscliente->estado}}</p>
+              <h5>Haz tu pago por transferencia</h5>
+              <a href="{{ asset('templates/niceadmin/assets/img/QR.jpg')}}" download="QR ITCloud">
+                <img class="img-thumbnail" src="{{ asset('templates/niceadmin/assets/img/QR.jpg')}}" alt="QR Pagos">
+              </a>
             </div>
             <div class="card-footer">
-                <a href="{{route('eventos.index')}}" class="btn btn-info">
+                <a href="{{route('ventas.index')}}" class="btn btn-info">
                     <i class=" ri-arrow-go-back-line"></i> Atras</a>
             </div>
           </div><!-- End Card with header and footer -->
