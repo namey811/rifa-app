@@ -20,10 +20,14 @@
               <p>Fecha: {{$numeroscliente->eventos->fecha_evento}}</p>
               <p>Numeros: {{$numeroscliente->numeros->numero}}</p>
               <p>Estado: {{$numeroscliente->estado}}</p>
+              @if($numeroscliente->estado == 'Pagado')
+              <h5>Gracias por tu pago! Te deseamos exitos!!!</h5>
+              @else
               <h5>Haz tu pago por transferencia, puedes descargar el QR dando click en la imagen.</h5>
               <a href="{{ asset('templates/niceadmin/assets/img/QR.jpg')}}" download="QR ITCloud">
                 <img class="img-thumbnail" src="{{ asset('templates/niceadmin/assets/img/QR.jpg')}}" alt="QR Pagos">
               </a>
+              @endif
             </div>
             <div class="card-footer">
                 <a href="{{route('home')}}" class="btn btn-info">
