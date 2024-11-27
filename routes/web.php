@@ -16,6 +16,7 @@ Route::get('/venta-online/{id}', [HomeController::class, 'ventaonline'])->name('
 Route::resource('clientes', ClienteController::class);
 Route::resource('numeros', NumeroController::class);
 Route::resource('pagos', PagoController::class);
+Route::delete('pagos/{idp}/{idv}/{abono}/{saldo}', [PagoController::class, 'destroy'])->name('pagos.destroy');
 Route::get('/cargarventasporcliente/{id}', [PagoController::class, 'cargarventasporcliente']);
 Route::resource('ventas', VentaController::class);
 Route::post('/ventas/storeonline', [VentaController::class, 'storeonline'])->name('ventas.storeonline');

@@ -21,9 +21,14 @@
   <link href="{{ asset('templates/niceadmin/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('templates/niceadmin/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
   <link href="{{ asset('templates/niceadmin/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('templates/niceadmin/assets/vendor/quill/quill.snow.css')}}" rel="stylesheet">
+  <link href="{{ asset('templates/niceadmin/assets/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
+  <link href="{{ asset('templates/niceadmin/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{ asset('templates/niceadmin/assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+
   <!-- Template Main CSS File -->
   <link href="{{ asset('templates/niceadmin/assets/css/style.css')}}" rel="stylesheet">
-  <!-- Custom CSS -->
+   <!-- Custom CSS -->
   @yield('css-customize')
 </head>
 
@@ -34,7 +39,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="{{route('home')}}" class="logo d-flex align-items-center">
-        <img src="{{ asset('templates/niceadmin/assets/img/logo.png')}}" alt="">
+        <img src="{{ asset('templates/niceadmin/assets/img/logo.png')}}" alt="Logo">
         <span class="d-none d-lg-block">Rifa Online</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -72,51 +77,6 @@
           <span>Home</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Maestros</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="{{request()->routeIs('clientes.index', 'numeros.index', 'ventas.index', 'responsables.index', 'eventos.index', 'pagos.index') ? 'nav-content collapse show' : 'nav-content collapse' }}" data-bs-parent="#sidebar-nav">
-          
-          <li>
-            <a href="{{route('responsables.index')}}" class="{{request()->routeIs('responsables.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Responsables</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('eventos.index')}}" class="{{request()->routeIs('eventos.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Eventos</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('clientes.index')}}" class="{{request()->routeIs('clientes.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Clientes</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{{route('numeros.index')}}" class="{{request()->routeIs('numeros.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Numeros</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{{route('ventas.index')}}" class="{{request()->routeIs('ventas.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Ventas</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="{{route('pagos.index')}}" class="{{request()->routeIs('pagos.index') ? 'active' : '' }}">
-              <i class="bi bi-circle"></i><span>Pagos</span>
-            </a>
-          </li>
-
-
-        </ul>
-        
-      </li><!-- End Components Nav -->
       </ul>
 
   </aside><!-- End Sidebar-->
@@ -142,14 +102,19 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Vendor JS Files -->
+  <script src="{{ asset('templates/niceadmin/assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
+  <script src="{{ asset('templates/niceadmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('templates/niceadmin/assets/vendor/chart.js/chart.umd.js')}}"></script>
+  <script src="{{ asset('templates/niceadmin/assets/vendor/echarts/echarts.min.js')}}"></script>
+  <script src="{{ asset('templates/niceadmin/assets/vendor/quill/quill.js')}}"></script>
+  <script src="{{ asset('templates/niceadmin/assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
+  <script src="{{ asset('templates/niceadmin/assets/vendor/tinymce/tinymce.min.js')}}"></script>
+  <script src="{{ asset('templates/niceadmin/assets/vendor/php-email-form/validate.js')}}"></script>
+
+  <script src="{{ asset('templates/niceadmin/assets/js/main.js')}}"></script>
   <!-- JS Custom-->
   @yield('js-customize')
 
-  <!-- Vendor JS Files -->
-  
-  <script src="{{ asset('templates/niceadmin/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-  <script src="{{ asset('templates/niceadmin/assets/js/main.js')}}"></script>
-  
 </body>
 </html>

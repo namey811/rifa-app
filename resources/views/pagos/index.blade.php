@@ -48,7 +48,7 @@
                         <td>
                           <a href="{{route('pagos.show', $item->id)}}" class="btn btn-light btn-sm"><i class="ri-tv-2-line"></i></a>
                           <a href="{{route('pagos.edit', $item->id)}}" class="btn btn-info btn-sm"><i class="ri-edit-2-line"></i></a>
-                          <form action="{{route('pagos.destroy', $item->id)}}" method="POST" onsubmit="return confirm('Esta seguro de eliminar este registro ?')">
+                          <form action="{{route('pagos.destroy', [$item->id, $item->ventas->id, $item->ventas->abonado, $item->ventas->total])}}" method="POST" onsubmit="return confirm('Esta seguro de eliminar este registro ?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"><i class="ri-delete-bin-5-line"></i></button>

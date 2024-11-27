@@ -9,18 +9,16 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class namey811 extends Mailable
+class NotificationVenta extends Mailable
 {
     use Queueable, SerializesModels;
-
-   public $idcliente;
-
+    public $idventa;
     /**
      * Create a new message instance.
      */
-    public function __construct($idc)
+    public function __construct($idv)
     {
-        $this->idcliente = $idc;
+        $this->idventa = $idv;
     }
 
     /**
@@ -29,7 +27,7 @@ class namey811 extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Compra de numero',
+            subject: 'Notificacion venta',
         );
     }
 
@@ -39,9 +37,9 @@ class namey811 extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'correo.notificacion',
+            view: 'correo.notificacion_venta',
             with: [
-                'idcliente' => $this->idcliente,
+                'idventa' => $this->idventa,
             ],
         );
     }

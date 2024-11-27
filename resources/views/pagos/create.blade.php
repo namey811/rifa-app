@@ -71,6 +71,12 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-floating">
+                      <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="{{ old('email') }}" required>
+                      <label for="email">Email:</label>
+                    </div>
+                </div>
+                  <div class="col-md-4">
+                    <div class="form-floating">
                       <input type="date" class="form-control" id="floatingFechaP" placeholder="Fecha Pago" name="fecha_pago" value="{{ old('fecha_pago', date('Y-m-d')) }}" required>
                       <label for="floatingFechaP">Fecha Pago:</label>
                     </div>
@@ -105,8 +111,9 @@
                         $('#floatingSelectVenta').empty();
                         $.each(data, function(key, value) {
                             $('#floatingSelectVenta').append('<option value="' + value.id + '">Numero: ' + value.numeros.numero + ' | Valor: ' +value.saldo+ '</option>');
-                            console.log(value.monto);
                             $('#floatingMonto').val(value.saldo);
+                            //console.log(value.clientes.email);
+                            $('#email').val(value.clientes.email);
                         });
                     }
                 });

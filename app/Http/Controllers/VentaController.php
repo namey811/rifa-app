@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\namey811;
+use App\Mail\NotificationVenta;
 use App\Models\Cliente;
 use App\Models\Evento;
 use App\Models\Numero;
@@ -96,7 +96,7 @@ public function validateCedula(Request $request)
             'estado' => 'Vendido',
          ]);
    
-      Mail::to($request->email)->send(new namey811($ventaid));
+      Mail::to($request->email)->send(new NotificationVenta($ventaid));
 
          return redirect()->route('home')->with('success', 'Venta realizada exitosamente, revisa tu correo electronico donde encontraras el detalle de tu compra.');
    }
@@ -109,19 +109,20 @@ public function validateCedula(Request $request)
             'numeros_id' => 'required',
             'valor' => 'required'
          ]);
-         Venta::create([
+         $registro = Venta::create([
             'eventos_id' => $request->eventos_id,
             'clientes_id' => $request->clientes_id,
             'numeros_id' => $request->numeros_id,
             'total' => $request->valor,
             'saldo' => $request->valor,
          ]);
+         $ventaid = $registro->id;
          $numero = Numero::findOrFail($request->numeros_id);
          $numero->update([
             'estado' => 'Vendido',
          ]);
    
-      #Mail::to($request->email)->send(new namey811());
+      Mail::to($request->email)->send(new NotificationVenta($ventaid));
 
          return redirect()->route('ventas.index')->with('success', 'Venta creado exitosamente');
    }

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotificationPago;
 use App\Models\Cliente;
 use App\Models\Pago;
 use App\Models\Venta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PagoController extends Controller
 {
@@ -36,9 +38,9 @@ class PagoController extends Controller
             'tipo' => 'required',
             'metodo_pago' => 'required',
             'monto' => 'required|numeric',
+            'email' => 'required|email',
             'fecha_pago' => 'required|date'
         ]);
-
         Pago::create($request->all());
         $venta = Venta::findOrFail($request->ventas_id);
         $venta->update([
@@ -46,13 +48,15 @@ class PagoController extends Controller
             'saldo' => $venta->saldo - $request->monto,
             'estado' => 'Pagado',
          ]);
+         $ventaid = $venta->id;
+         Mail::to($request->email)->send(new NotificationPago($ventaid));
 
         return redirect()->route('pagos.index')->with('success', 'Pago creado exitosamente');
     }
 
     public function cargarventasporcliente($id)
     {
-       $resultado = Venta::with('numeros')
+       $resultado = Venta::with('numeros', 'clientes')
        ->where('clientes_id', $id)
        ->where('estado', 'No Pagado')
        ->get();
@@ -92,12 +96,18 @@ class PagoController extends Controller
         return redirect()->route('pagos.index')->with('success', 'Pago actualizado exitosamente');
     }
 
-     // Eliminar un cliente
-    public function destroy($id)
+     // Eliminar un pago y actualizar la venta
+    public function destroy($idp, $idv, $abono, $saldo)
     {
-        $pago = Pago::findOrFail($id);
+        //PENDIENTE SOLO RECIBIR UN ID Y HACER LA LOGICA EN EL CONTROLADOR
+        $pago = Pago::findOrFail($idp);
         $pago->delete();
-
-        return redirect()->route('numeros.index')->with('success', 'Pago eliminado exitosamente');
+        $venta = Venta::findOrFail($idv);
+        $venta->update([
+            'abonado' => $abono,
+            'saldo' => $saldo,
+            'estado' => 'No pagado',
+         ]);
+        return redirect()->route('pagos.index')->with('success', 'Pago eliminado exitosamente');
     }
 }
